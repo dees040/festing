@@ -2,41 +2,35 @@
 
 namespace Dees040\Festing\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Foundation\Console\TestMakeCommand;
 
-class FestCommand extends Command
+class FestCommand extends TestMakeCommand
 {
     /**
-     * The name and signature of the console command.
+     * The console command name.
      *
      * @var string
      */
-    protected $signature = 'make:fest';
+    protected $signature = 'make:fest {name : The name of the class} {--unit : Create a unit test}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Make a fast test.';
+    protected $description = 'Create a new fast test class';
 
     /**
-     * Create a new command instance.
+     * Get the stub file for the generator.
      *
-     * @return void
+     * @return string
      */
-    public function __construct()
+    protected function getStub()
     {
-        //
-    }
+        if ($this->option('unit')) {
+            return __DIR__.'/stubs/unit-test.stub';
+        }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        //
+        return __DIR__.'/stubs/test.stub';
     }
 }
