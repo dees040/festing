@@ -1,4 +1,6 @@
 /vendor
+/.idea
+/log
 composer.phar
 composer.lock
 .DS_Store
