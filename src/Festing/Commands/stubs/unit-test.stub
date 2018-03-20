@@ -3,12 +3,12 @@
 namespace DummyNamespace;
 
 use Tests\TestCase;
-use dees040\Festing\FestTheDatabase;
+use dees040\Festing\ShouldFest;
 use Illuminate\Foundation\Testing\WithFaker;
 
 class DummyClass extends TestCase
 {
-    use FestTheDatabase;
+    use ShouldFest;
 
     /**
      * A basic test example.

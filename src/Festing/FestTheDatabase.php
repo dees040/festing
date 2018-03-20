@@ -75,7 +75,7 @@ trait FestTheDatabase
     {
         $connection = config('festing.database_connection');
 
-        config(["database.connections.{$$connection}.database" => ':memory:']);
+        config(["database.connections.{$connection}.database" => ':memory:']);
 
         DB::purge('testing');
 

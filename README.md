@@ -46,7 +46,7 @@ In the package config you can specify which connection to use while testing. By 
 <env name="DB_CONNECTION" value="testing"/>
 ```
 
-Because Laravel don't have an option to boot your testing traits like the model traits we need to add a little bit of functionality to you're `tests/TestCase.php` file. If haven't overwritten the `setUpTraits()` method yet, you can add this to the `TestCase.php`.
+Because Laravel don't have an option to boot your testing traits like the model traits we need to add a little bit of functionality in our `tests/TestCase.php` file. If you haven't overwritten the `setUpTraits()` method yet, you can add this to the `TestCase.php`.
 
 ```php
 /**
@@ -58,7 +58,7 @@ protected function setUpTraits()
 {
     $uses = parent::setUpTraits();
     
-    if (isset($uses[\dees040\Festing\FestTheDatabase::class])) {
+    if (isset($uses[\dees040\Festing\ShouldFest::class])) {
         $this->runFester();
     }
     
@@ -66,11 +66,11 @@ protected function setUpTraits()
 }
 ```
 
-If you already overwritten the `setUpTraits()` method just add the if statement to the method body.
+If you already have overwritten the `setUpTraits()` method just add the if statement to the method body. **Also your `TestCase.php` should use the `FestTheDatabase` trait.** In the examples directory you can see an example `TestCase.php` and unit test.
 
 ### In test cases
 
-You can use the trait like any other Laravel testing trait. It replaces the `RefreshDatabase` trait. So in your test case use the `FestTheDatabase` trait.
+To actually execute the database refresher you need to use `ShouldFest` trait in your test cases. This traits is used like the `ShouldQueue` interface, it only executes the code if it's detected. It also replaces the `RefreshDatabase` trait from Laravel.
 
 ```php
 <?php
@@ -78,11 +78,11 @@ You can use the trait like any other Laravel testing trait. It replaces the `Ref
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use dees040\Festing\FestTheDatabase;
+use dees040\Festing\ShouldFest;
 
 class ExampleTest extends TestCase
 {
-    use FestTheDatabase;
+    use ShouldFest;
     
     /**
      * A basic test example.
@@ -98,7 +98,7 @@ class ExampleTest extends TestCase
 
 ### Command
 
-The package come with a command (`make:fest`) which is the same as `php artisan make:test`. The only difference is that it uses the `FestTheDatabase` trait instead of the default `RefreshDatabase` trait provided by Laravel.
+The package come with a command (`make:fest`) which is the same as `php artisan make:test`. The only difference is that it uses the `ShouldFest` trait instead of the default `ShouldFest` trait provided by Laravel.
 
 ## Config
 

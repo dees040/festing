@@ -1,12 +1,12 @@
 <?php
 
-namespace DummyNamespace;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 use dees040\Festing\ShouldFest;
 use Illuminate\Foundation\Testing\WithFaker;
 
-class DummyClass extends TestCase
+class ExampleTest extends TestCase
 {
     use ShouldFest;
 

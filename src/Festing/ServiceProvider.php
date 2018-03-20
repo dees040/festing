@@ -51,7 +51,10 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function bootUnitTestServices()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // TODO: Make unit tests to that use migrations to test
+        // main functionality of package.
+
+        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**
