@@ -1,6 +1,6 @@
 <?php
 
-namespace dees040\Festing;
+namespace Dees040\Festing;
 
 use Illuminate\Support\Facades\DB;
 

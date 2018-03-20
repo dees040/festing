@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use Tests\TestCase;
-use dees040\Festing\ShouldFest;
+use Dees040\Festing\ShouldFest;
 use Illuminate\Foundation\Testing\WithFaker;
 
 class DummyClass extends TestCase

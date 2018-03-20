@@ -6,6 +6,14 @@
 
 Festing is a very very great name made by combining the words fast and testing. Because that is what this package is for. Faster tests in Laravel. The package is inspired by a great article from [Nate Denlinger](https://natedenlinger.com/my-suggestions-to-speed-up-testing-with-laravel-and-phpunit/).
 
+Before 'Festing':
+
+![Before fast database tests](https://i.imgur.com/mbtRUS3.png)
+
+After 'Festing':
+
+![After fast database tests](https://i.imgur.com/KfZsFm1.png)
+
 ## Installation
 
 Installation and setup time is estimated to be around 5 minutes in existing Laravel projects and 2 minutes in new projects. Install this package via composer.
@@ -17,7 +25,7 @@ composer require --dev dees040/festing
 If you're using Laravel >= 5.5 this package will automatically be added to your providers list. If using a lower version, add the service provider to the `providers` array in `config/app.php`.
 
 ```php
-dees040\Festing\ServiceProvider::class,
+Dees040\Festing\ServiceProvider::class,
 ```
 
 You're now ready for setup.
@@ -25,7 +33,7 @@ You're now ready for setup.
 The package comes with a small config file. The default config should be good in most use cases. However, feel free to change it. To publish the config file run the following command
 
 ```bash
-php artisan vendor:publish --provider="dees040\Festing\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Dees040\Festing\ServiceProvider" --tag="config"
 ```
 
 ## Setup
@@ -58,7 +66,7 @@ protected function setUpTraits()
 {
     $uses = parent::setUpTraits();
     
-    if (isset($uses[\dees040\Festing\ShouldFest::class])) {
+    if (isset($uses[\Dees040\Festing\ShouldFest::class])) {
         $this->runFester();
     }
     
@@ -78,7 +86,7 @@ To actually execute the database refresher you need to use `ShouldFest` trait in
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use dees040\Festing\ShouldFest;
+use Dees040\Festing\ShouldFest;
 
 class ExampleTest extends TestCase
 {

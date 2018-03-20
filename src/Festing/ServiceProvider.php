@@ -1,8 +1,8 @@
 <?php 
 
-namespace dees040\Festing;
+namespace Dees040\Festing;
 
-use dees040\Festing\Commands\FestCommand;
+use Dees040\Festing\Commands\FestCommand;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider

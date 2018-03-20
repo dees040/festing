@@ -18,18 +18,18 @@
     },
     "autoload": {
        "psr-4": {
-            "dees040\\Festing\\": "src/Festing"
+            "Dees040\\Festing\\": "src/Festing"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "dees040\\Festing\\Tests\\": "tests/"
+            "Dees040\\Festing\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "dees040\\Festing\\ServiceProvider"
+                "Dees040\\Festing\\ServiceProvider"
             ]
         }
     },

@@ -1,8 +1,8 @@
 <?php
 
-namespace dees040\Festing\Tests\Unit;
+namespace Dees040\Festing\Tests\Unit;
 
-use dees040\Festing\Tests\TestCase;
+use Dees040\Festing\Tests\TestCase;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Artisan;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace dees040\Festing\Tests;
+namespace Dees040\Festing\Tests;
 
-use dees040\Festing\ServiceProvider;
+use Dees040\Festing\ServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

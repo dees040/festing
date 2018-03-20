@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use dees040\Festing\FestTheDatabase;
+use Dees040\Festing\FestTheDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

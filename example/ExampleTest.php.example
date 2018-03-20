@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use dees040\Festing\ShouldFest;
+use Dees040\Festing\ShouldFest;
 use Illuminate\Foundation\Testing\WithFaker;
 
 class ExampleTest extends TestCase
