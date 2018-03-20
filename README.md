@@ -18,7 +18,7 @@ dees040\Festing\ServiceProvider::class,
 
 You're now ready for setup.
 
-The package comes with a small config file. The default config should be good in the most use cases. However, feel free to change it. To publish the config file run the following command
+The package comes with a small config file. The default config should be good in most use cases. However, feel free to change it. To publish the config file run the following command
 
 ```bash
 php artisan vendor:publish --provider="dees040\Festing\ServiceProvider" --tag="config"
@@ -26,14 +26,14 @@ php artisan vendor:publish --provider="dees040\Festing\ServiceProvider" --tag="c
 
 ## Setup
 
-First you should update the `config/database.php` config file. We should add a connection for testing. You can use the following array.
+First you should update the `database.php` config file. We should add a connection specifically for testing. You can use the following array.
 
 ```php
 'testing' => [
     'driver' => 'sqlite',
     'database' => database_path('testing.sqlite'),
     'prefix'   => '',
-]
+],
 ```
 
 In the package config you can specify which connection to use while testing. By default it will use the `testing` connection, which we've just added to the `connections` array. You should also add or update this in `<php>` tag located in the `phpunit.xml` file.

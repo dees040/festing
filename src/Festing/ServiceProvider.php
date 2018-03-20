@@ -38,6 +38,20 @@ class ServiceProvider extends BaseServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands($this->commands);
         }
+
+        if ($this->app->runningUnitTests()) {
+            $this->bootUnitTestServices();
+        }
+    }
+
+    /**
+     * Boot database services for unit tests.
+     *
+     * @return void
+     */
+    protected function bootUnitTestServices()
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**
