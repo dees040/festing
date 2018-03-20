@@ -18,6 +18,12 @@ dees040\Festing\ServiceProvider::class,
 
 You're now ready for setup.
 
+The package comes with a small config file. The default config should be good in the most use cases. However, feel free to change it. To publish the config file run the following command
+
+```bash
+php artisan vendor:publish --provider="dees040\Festing\ServiceProvider" --tag="config"
+```
+
 ## Setup
 
 First you should update the `config/database.php` config file. We should add a connection for testing. You can use the following array.
@@ -85,6 +91,10 @@ class ExampleTest extends TestCase
     }
 }
 ```
+
+### Command
+
+The package come with a command (`make:fest`) which is the same as `php artisan make:test`. The only difference is that it uses the `FestTheDatabase` trait instead of the default `RefreshDatabase` trait provided by Laravel.
 
 ## Config
 
