@@ -1,5 +1,9 @@
 # Fast Laravel Testing
 
+<a href="https://packagist.org/packages/dees040/festing"><img src="https://poser.pugx.org/dees040/festing/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/dees040/festing"><img src="https://poser.pugx.org/dees040/festing/downloads" alt="Total Downloads"></a>
+<a href="https://travis-ci.org/dees040/festing"><img src="https://travis-ci.org/dees040/festing.svg?branch=master" alt="Build status"></a>
+
 Festing is a very very great name made by combining the words fast and testing. Because that is what this package is for. Faster tests in Laravel. The package is inspired by a great article from [Nate Denlinger](https://natedenlinger.com/my-suggestions-to-speed-up-testing-with-laravel-and-phpunit/).
 
 ## Installation
