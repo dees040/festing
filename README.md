@@ -11,7 +11,7 @@ Festing is a very very great name made by combining the words fast and testing. 
 Installation and setup time is estimated to be around 5 minutes in existing Laravel projects and 2 minutes in new projects. Install this package via composer.
 
 ```bash
-composer require-dev dees040/festing
+composer require --dev dees040/festing
 ```
 
 If you're using Laravel >= 5.5 this package will automatically be added to your providers list. If using a lower version, add the service provider to the `providers` array in `config/app.php`.
