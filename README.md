@@ -106,7 +106,7 @@ class ExampleTest extends TestCase
 
 ### Command
 
-The package come with a command (`make:fest`) which is the same as `php artisan make:test`. The only difference is that it uses the `ShouldFest` trait instead of the default `ShouldFest` trait provided by Laravel.
+The package come with a command (`make:fest`) which is the same as `php artisan make:test`. The only difference is that it uses the `ShouldFest` trait instead of the default `RefreshDatabase` trait provided by Laravel.
 
 ## Config
 
