@@ -15,7 +15,7 @@ class ServiceProvider extends BaseServiceProvider
     protected $packageName = 'festing';
 
     /**
-     * A list of artisan commands for your package
+     * A list of artisan commands for your package.
      * 
      * @var array
      */
@@ -51,7 +51,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function bootUnitTestServices()
     {
-        // TODO: Make unit tests to that use migrations to test
+        // TODO: Make unit tests that use migrations to test
         // main functionality of package.
 
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');

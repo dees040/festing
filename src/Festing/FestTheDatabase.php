@@ -79,7 +79,7 @@ trait FestTheDatabase
 
         DB::purge('testing');
 
-        $lines = explode("\n",self::$databaseContent);
+        $lines = explode("\n", self::$databaseContent);
 
         foreach($lines as $line) {
             DB::statement($line);
