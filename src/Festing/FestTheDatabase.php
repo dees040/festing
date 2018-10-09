@@ -21,9 +21,20 @@ trait FestTheDatabase
     protected static $databaseContent;
 
     /**
+     * An array with lines which are skipable.
+     *
+     * @var array
+     */
+    protected $skipableLines = [
+        'CREATE TABLE sqlite_sequence(name,seq);',
+    ];
+
+    /**
      * Run the database setup if needed and install the contents.
      *
      * @return void
+     *
+     * @throws \Exception
      */
     public function runFester()
     {
@@ -70,6 +81,8 @@ trait FestTheDatabase
      * Install the contents of migration to inline memory.
      *
      * @return void
+     *
+     * @throws \Exception
      */
     private function installDatabaseContent()
     {
@@ -82,7 +95,13 @@ trait FestTheDatabase
         $lines = explode("\n", self::$databaseContent);
 
         foreach($lines as $line) {
-            DB::statement($line);
+            try {
+                DB::statement($line);
+            } catch (\Exception $e) {
+                if (! in_array($line, $this->skipableLines)) {
+                    throw $e;
+                }
+            }
         }
     }
 }
