@@ -111,3 +111,7 @@ The package come with a command (`make:fest`) which is the same as `php artisan 
 ## Config
 
 Check the [config file](https://github.com/dees040/festing/blob/master/src/config/festing.php) for descriptions about all the config.
+
+### Cached data
+
+Before we cache the data to make the tests significantly faster we run a list of artisan commands. Be default we run `php artisan migrate`. But if you'd like to change this or want to run more commands (i.e. `php artisan db:seed`) you can change the `commands` array config value. 
