@@ -57,4 +57,19 @@ return [
 
     'schema_file' => 'schema.sql',
 
+    /*
+   |--------------------------------------------------------------------------
+   | Artisan commands to run
+   |--------------------------------------------------------------------------
+   |
+   | Before the database structure + data is cached we'll run a list of artisan
+   | commands. This can be useful if you want the migrations to be in the cached
+   | data or maybe you want a seeder to run. You can specify a list of commands
+   | which you'd like to be run.
+   |
+   */
+
+    'commands' => [
+        'migrate',
+    ],
 ];

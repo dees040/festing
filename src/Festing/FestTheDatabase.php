@@ -66,7 +66,11 @@ trait FestTheDatabase
 
         file_put_contents($filePath, '');
 
-        $this->artisan('migrate');
+        $commands = config('festing.commands');
+
+        foreach ($commands as $command) {
+            $this->artisan($command);
+        }
 
         exec("cd {$databasePath} && sqlite3 {$fileName} .dump > {$schemaName}");
 
