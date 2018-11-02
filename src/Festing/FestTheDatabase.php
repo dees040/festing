@@ -68,7 +68,7 @@ trait FestTheDatabase
 
         $this->artisan('migrate');
 
-        exec("cd {$databasePath} && sqlite3 {$fileName} .schema > {$schemaName}");
+        exec("cd {$databasePath} && sqlite3 {$fileName} .dump > {$schemaName}");
 
         static::$databaseContent = file_get_contents($schemaPath);
 
