@@ -57,21 +57,30 @@ In the package config you can specify which connection to use while testing. By 
 Because Laravel don't have an option to boot your testing traits like the model traits we need to add a little bit of functionality in our `tests/TestCase.php` file. If you haven't overwritten the `setUpTraits()` method yet, you can add this to the `TestCase.php`.
 
 ```php
-/**
- * Boot the testing helper traits.
- *
- * @return array
- */
-protected function setUpTraits()
+
+use Dees040\Festing\FestTheDatabase;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+
+abstract class TestCase extends BaseTestCase
 {
-    $uses = parent::setUpTraits();
+    use CreatesApplication, FestTheDatabase;
+
+
+    /**
+     * Boot the testing helper traits.
+     *
+     * @return array
+     */
+    protected function setUpTraits()
+    {
+        $uses = parent::setUpTraits();
     
-    if (isset($uses[\Dees040\Festing\ShouldFest::class])) {
-        $this->runFester();
+        if (isset($uses[\Dees040\Festing\ShouldFest::class])) {
+            $this->runFester();
+        }
+    
+        return $uses;
     }
-    
-    return $uses;
-}
 ```
 
 If you already have overwritten the `setUpTraits()` method just add the if statement to the method body. **Also your `TestCase.php` should use the `FestTheDatabase` trait.** In the examples directory you can see an example `TestCase.php` and unit test.
