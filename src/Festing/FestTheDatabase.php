@@ -3,6 +3,7 @@
 namespace Dees040\Festing;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 trait FestTheDatabase
 {
@@ -66,11 +67,7 @@ trait FestTheDatabase
 
         file_put_contents($filePath, '');
 
-        $commands = config('festing.commands');
-
-        foreach ($commands as $command) {
-            $this->artisan($command);
-        }
+        $this->runCommandsBeforeDumpingDbContent();
 
         exec("cd {$databasePath} && sqlite3 {$fileName} .dump > {$schemaName}");
 
@@ -79,6 +76,27 @@ trait FestTheDatabase
         unlink($schemaPath);
 
         static::$ranSetup = true;
+    }
+
+    /**
+     * Before we dump the database contents we need to run the artisan commands,
+     * if any are given in the settings. This can be useful if the users likes
+     * to not only run the migrations, but also want some seeders to be ran.
+     *
+     * @return void
+     */
+    private function runCommandsBeforeDumpingDbContent()
+    {
+        $commands = config('festing.commands');
+
+        foreach ($commands as $command => $parameters) {
+            if (is_string($parameters)) {
+                $command = $parameters;
+                $parameters = [];
+            }
+
+            Artisan::call($command, $parameters);
+        }
     }
 
     /**

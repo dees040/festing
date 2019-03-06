@@ -65,7 +65,11 @@ return [
    | Before the database structure + data is cached we'll run a list of artisan
    | commands. This can be useful if you want the migrations to be in the cached
    | data or maybe you want a seeder to run. You can specify a list of commands
-   | which you'd like to be run.
+   | which you'd like to be run. If you'd like to add arguments to your commands
+   | you should make the command the key and add the options as an array to the
+   | specific command, for example:
+   |
+   | 'db:seed' => ['--class' => 'RolesTableSeeder'],
    |
    */
 
